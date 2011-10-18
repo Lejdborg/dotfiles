@@ -1,0 +1,11 @@
+[user]
+	name = Lejdborg
+	email = christoffer.lejdborg@gmail.com
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+[core]
+	excludesfile = ~/.gitignore
+[github]
+	user = Lejdborg

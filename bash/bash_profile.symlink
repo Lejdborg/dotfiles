@@ -1,0 +1,7 @@
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+# aliases
+source ~/.bash/aliases.sh
+source ~/.bash/git-completion.bash

@@ -1,0 +1,53 @@
+let mapleader = ","
+
+" Automatically reload .vimrc anytime it's modified.
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd bufwritepost .vimrc source $MYGVIMRC
+endif
+
+" Easily modify .vimrc and .gvimrc
+nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>g :tabedit $MYGVIMRC<CR>
+
+" Include Janus' vim config
+if filereadable(expand("~/.vim/vimrc"))
+  source ~/.vim/vimrc
+endif
+
+" Map Cmd+Alt+Arrow to move between tabs
+map <D-M-right> gt
+imap <D-M-right> <ESC> gt
+map <D-M-left> gT
+imap <D-M-left> <ESC> gT
+
+" Map Ctrl+Arrow to move between splits.
+map <C-left> <C-w>h
+imap <C-left> <ESC> <C-w>h
+map <C-down> <C-w>j
+imap <C-down> <ESC> <C-w>j
+map <C-up> <C-w>k
+imap <C-up> <ESC> <C-w>k
+map <C-right> <C-w>l
+imap <C-right> <ESC> <C-w>l
+
+" Also map Ctrl+h|j|k|l to move between splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Macro to strip trailing whitespace
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap _= :call Preserve("normal gg=G")<CR>

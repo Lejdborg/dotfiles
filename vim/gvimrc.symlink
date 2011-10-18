@@ -1,0 +1,12 @@
+set guioptions=aAce
+
+" Reload configuration files on save
+if has("autocmd")
+  autocmd bufwritepost .gvimrc source $MYVIMRC
+  autocmd bufwritepost .gvimrc source $MYGVIMRC
+endif
+
+" Include Janus' local gvim config
+if filereadable(expand("~/.vim/gvimrc"))
+  source ~/.vim/gvimrc
+endif
