@@ -4,4 +4,6 @@ eval "$(rbenv init -)"
 
 # aliases
 source ~/.bash/aliases.sh
+
+# git
 source ~/.bash/git-completion.bash
