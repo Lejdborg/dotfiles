@@ -10,6 +10,9 @@ endif
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>g :tabedit $MYGVIMRC<CR>
 
+" Open todo.txt
+nmap <leader>T :Todo<CR>
+
 " Include Janus' vim config
 if filereadable(expand("~/.vim/vimrc"))
   source ~/.vim/vimrc
@@ -37,7 +40,7 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Macro to strip trailing whitespace
+" Macro to strip trailing whitespace using key command _$
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
   let _s=@/
