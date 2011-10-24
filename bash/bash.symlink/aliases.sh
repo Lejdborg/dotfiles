@@ -10,3 +10,9 @@ alias cdot='cd ~/.dotfiles'
 
 # Cleaning up
 alias c="clear"
+
+# Git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push origin"
