@@ -6,3 +6,6 @@ alias lsa="ls -la"
 
 # Editing configurations
 alias dotfiles='mvim ~/.dotfiles'
+
+# Cleaning up
+alias c="clear"
