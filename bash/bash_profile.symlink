@@ -10,3 +10,6 @@ source ~/.bash/aliases.sh
 # git
 source ~/.bash/git-completion.bash
 source ~/.bash/git.sh
+
+# files and directories
+source ~/.bash/files.sh
