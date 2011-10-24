@@ -5,8 +5,9 @@ alias ls="ls -G"
 alias lsa="ls -la"
 
 # Editing configurations
-alias dotfiles="mvim ~/.dotfiles"
+alias edot="mvim ~/.dotfiles"
 alias cdot="cd ~/.dotfiles"
+alias cedot="cd ~/.dotfiles && mvim ."
 
 # Cleaning up
 alias c="clear"
