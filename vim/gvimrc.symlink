@@ -10,3 +10,7 @@ endif
 if filereadable(expand("~/.vim/gvimrc"))
   source ~/.vim/gvimrc
 endif
+
+" Set Solarized dark color theme
+set background=dark
+color solarized
