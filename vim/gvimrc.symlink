@@ -2,15 +2,115 @@ set guioptions=aAce
 
 " Reload configuration files on save
 if has("autocmd")
-  autocmd bufwritepost .gvimrc source $MYVIMRC
   autocmd bufwritepost .gvimrc source $MYGVIMRC
-endif
-
-" Include Janus' local gvim config
-if filereadable(expand("~/.vim/gvimrc"))
-  source ~/.vim/gvimrc
 endif
 
 " Set Solarized dark color theme
 set background=dark
 color solarized
+
+if has("gui_macvim")
+  " Fullscreen takes up entire screen
+  set fuoptions=maxhorz,maxvert
+
+  " Command-T for CommandT
+  macmenu &File.New\ Tab key=<D-T>
+  map <D-t> :CommandT<CR>
+  imap <D-t> <Esc>:CommandT<CR>
+
+  " Command-Return for fullscreen
+  macmenu Window.Toggle\ Full\ Screen\ Mode key=<D-CR>
+
+  " Command-Shift-F for Ack
+  map <D-F> :Ack<space>
+
+  " Use tab to increase and decrease indentation
+  vmap <tab> >gv
+  vmap <S-tab> <gv
+
+  " Adjust viewports to the same size
+  map <Leader>= <C-w>=
+  imap <Leader>= <Esc> <C-w>=
+endif
+
+" Start without the toolbar
+set guioptions-=T
+
+" Project Tree
+autocmd! VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+autocmd! FocusGained * call s:UpdateNERDTree()
+autocmd! WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
+
+" If the parameter is a directory, cd into it
+function! s:CdIfDirectory(directory)
+  let explicitDirectory = isdirectory(a:directory)
+  let directory = explicitDirectory || empty(a:directory)
+
+  if explicitDirectory
+    exe "cd " . fnameescape(a:directory)
+  endif
+
+  " Allows reading from stdin
+  " ex: git diff | mvim -R -
+  if strlen(a:directory) == 0 
+    return
+  endif
+
+  if directory
+    NERDTree
+    wincmd p
+    bd
+  endif
+
+  if explicitDirectory
+    wincmd p
+  endif
+endfunction
+
+" NERDTree utility function
+function! s:UpdateNERDTree(...)
+  let stay = 0
+
+  if(exists("a:1"))
+    let stay = a:1
+  end
+
+  if exists("t:NERDTreeBufName")
+    let nr = bufwinnr(t:NERDTreeBufName)
+    if nr != -1
+      exe nr . "wincmd w"
+      exe substitute(mapcheck("R"), "<CR>", "", "")
+      if !stay
+        wincmd p
+      end
+    endif
+  endif
+
+  if exists(":CommandTFlush") == 2
+    CommandTFlush
+  endif
+endfunction
+
+" Public NERDTree-aware versions of builtin functions
+function! ChangeDirectory(dir, ...)
+  execute "cd " . fnameescape(a:dir)
+  let stay = exists("a:1") ? a:1 : 1
+
+  NERDTree
+
+  if !stay
+    wincmd p
+  endif
+endfunction

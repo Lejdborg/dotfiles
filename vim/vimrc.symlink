@@ -1,9 +1,27 @@
 let mapleader = ","
 
+" Basic settings
+set nocompatible
+syntax enable
+set encoding=utf-8
+set showcmd
+filetype plugin indent on
+
+" Set color theme
+color ir_black
+
+"" Whitespace
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set backspace=indent,eol,start
+set list listchars=tab:\ \ ,trail:·
+
 " Automatically reload .vimrc anytime it's modified.
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
-  autocmd bufwritepost .vimrc source $MYGVIMRC
 endif
 
 " Easily modify .vimrc and .gvimrc
@@ -13,10 +31,15 @@ nmap <leader>g :tabedit $MYGVIMRC<CR>
 " Open todo.txt
 nmap <leader>T :Todo<CR>
 
-" Include Janus' vim config
-if filereadable(expand("~/.vim/vimrc"))
-  source ~/.vim/vimrc
-endif
+"" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
 
 " Map Cmd+Alt+Arrow to move between tabs
 map <D-M-right> gt
@@ -40,6 +63,13 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" NERDTree configuration
+let NERDTreeIgnore=['\.rbc$', '\~$']
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+" Command-T configuration
+let g:CommandTMaxHeight=20
+
 " Macro to strip trailing whitespace using key command _$
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
@@ -54,3 +84,45 @@ function! Preserve(command)
 endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
+
+" Remember last location in file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal g'\"" | endif
+endif
+
+function! s:setupWrapping()
+  set wrap
+  set wm=2
+  set textwidth=72
+endfunction
+
+function! s:setupMarkup()
+  call s:setupWrapping()
+  map <buffer> <Leader>p :Mm <CR>
+endfunction
+
+" make uses real tabs
+au FileType make                                     set noexpandtab
+
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+" make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python  set tabstop=4 textwidth=79
+
+" Enable syntastic syntax checking
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_warnings=1
+
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+" % to bounce from do to end etc.
+runtime! macros/matchit.vim
