@@ -10,7 +10,7 @@ filetype plugin indent on
 " Set color theme
 color ir_black
 
-"" Whitespace
+" Whitespace
 set nowrap
 set tabstop=2
 set shiftwidth=2
@@ -18,6 +18,9 @@ set softtabstop=2
 set expandtab
 set backspace=indent,eol,start
 set list listchars=tab:\ \ ,trail:·
+
+" Line numbers
+set number
 
 " Automatically reload .vimrc anytime it's modified.
 if has("autocmd")
