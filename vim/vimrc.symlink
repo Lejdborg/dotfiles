@@ -67,7 +67,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
 " Command-T configuration
