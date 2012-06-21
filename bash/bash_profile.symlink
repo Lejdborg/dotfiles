@@ -4,8 +4,8 @@ if [ -d "$HOME/.rbenv" ]; then
   eval "$(rbenv init -)"
 fi
 
-# add ~/bin/ to PATH
-export PATH="$HOME/bin:$PATH"
+# add ~/.bin/ to PATH
+export PATH="$HOME/.bin:$PATH"
 
 # aliases
 source ~/.bash/aliases.sh
