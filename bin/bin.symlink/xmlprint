@@ -1,0 +1,8 @@
+#!/usr/bin/env php
+<?php
+$filename = $argv[1];
+if (!file_exists($filename)) {
+  echo "There is no such file.\n";
+}
+
+print_r(simplexml_load_file($filename));
