@@ -9,3 +9,5 @@
 	excludesfile = ~/.gitignore
 [github]
 	user = Lejdborg
+[mergetool]
+	keepBackup = true
