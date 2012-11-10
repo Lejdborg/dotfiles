@@ -7,8 +7,9 @@ set encoding=utf-8
 set showcmd
 filetype plugin indent on
 
-" Set color theme
-color ir_black
+" Set Solarized dark color theme
+set background=dark
+color solarized
 
 " Whitespace
 set nowrap
