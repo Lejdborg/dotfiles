@@ -18,6 +18,9 @@ build/*
 xcuserdata
 *.moved-aside
 
+# RubyMine
+.idea
+
 # Temp nibs and swap files
 *~.nib
 *.swp
