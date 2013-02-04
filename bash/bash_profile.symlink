@@ -17,5 +17,6 @@ source ~/.bash/git.sh
 # files and directories
 source ~/.bash/files.sh
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+if [ -f "$HOME/.bash_local" ]; then
+  source ~/.bash_local
+fi
