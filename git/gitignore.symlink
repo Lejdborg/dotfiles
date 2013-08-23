@@ -30,3 +30,8 @@ xcuserdata
 _assets*
 _assets/*
 _assets/**/*
+
+# Ruby development and deployment
+.powder
+Capfile
+deploy.rb
