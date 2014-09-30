@@ -1,11 +1,14 @@
 let mapleader = ","
 
+" Load plugins
+source ~/.vim/plugins.vim
+
 " Basic settings
-set nocompatible
 syntax enable
 set encoding=utf-8
 set showcmd
 filetype plugin indent on
+set number
 
 " Set Solarized dark color theme
 set background=dark
@@ -20,9 +23,6 @@ set expandtab
 set backspace=indent,eol,start
 set list listchars=tab:\ \ ,trail:·
 
-" Line numbers
-set number
-
 " Automatically reload .vimrc anytime it's modified.
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
@@ -32,7 +32,7 @@ endif
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>g :tabedit $MYGVIMRC<CR>
 
-"" Searching
+" Searching
 set hlsearch
 set incsearch
 set ignorecase
@@ -63,13 +63,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$']
-map <Leader>n <plug>NERDTreeTabsToggle<CR>
-
-" Command-T configuration
-let g:CommandTMaxHeight=20
 
 " Macro to strip trailing whitespace using key command _$
 function! Preserve(command)
@@ -119,7 +112,10 @@ au FileType python  set tabstop=4 textwidth=79
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
-let g:syntastic_quiet_warnings=1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
+
+" Compile less files
+nnoremap ,m :w <BAR> !lessc % > %:t:r.css<CR><space>
 
 " Directories for swp files
 set backupdir=~/.vim/backup
