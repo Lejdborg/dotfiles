@@ -4,11 +4,6 @@ alias ls="ls -G"
 # Quick access to ls -la
 alias lsa="ls -la"
 
-# Editing configurations
-alias edot="mvim ~/.dotfiles"
-alias cdot="cd ~/.dotfiles"
-alias cedot="cd ~/.dotfiles && mvim ."
-
 # Cleaning up
 alias c="clear"
 
