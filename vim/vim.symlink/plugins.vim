@@ -18,8 +18,10 @@ Bundle 'tpope/vim-surround'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-commentary'
 
-" Syntax checker
+" Syntax
 Bundle 'scrooloose/syntastic'
+let g:syntastic_enable_signs=1
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " Auto-completion
 Bundle 'tpope/vim-endwise'
