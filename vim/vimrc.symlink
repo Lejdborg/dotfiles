@@ -96,6 +96,9 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Map <Leader>r to reindent entire file
+map <Leader>r gg=G
+
 " Macro to strip trailing whitespace using key command _$
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
