@@ -35,6 +35,10 @@ let g:syntastic_quiet_messages = {'level': 'warnings'}
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-endwise'
 
+" Go to file
+Bundle 'wincent/command-t'
+let g:CommandTMaxHeight=20
+
 " Frontend development
 Bundle 'tpope/vim-haml'
 Bundle 'juvenn/mustache.vim'
