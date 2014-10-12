@@ -11,6 +11,14 @@ Bundle 'tpope/vim-sensible'
 " Color theme
 Bundle 'altercation/vim-colors-solarized'
 
+" NERDTree
+Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
+autocmd vimenter * NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
 " Text editing utilities
 Bundle 'vim-scripts/Reindent'
 Bundle 'tpope/vim-repeat'
