@@ -66,6 +66,9 @@ endif
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>g :tabedit $MYGVIMRC<CR>
 
+" Toggle NERDTree
+map <Leader>n <plug>NERDTreeTabsToggle<CR>
+
 " Use tab to increase and decrease indentation
 vmap <tab> >gv
 vmap <S-tab> <gv
