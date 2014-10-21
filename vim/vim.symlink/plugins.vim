@@ -27,16 +27,19 @@ Bundle 'tpope/vim-commentary'
 
 " Syntax
 Bundle 'scrooloose/syntastic'
-let g:syntastic_enable_signs=1
+let g:syntastic_enable_signs = 1
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " Auto-completion
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-endwise'
 
-" Go to file
-Bundle 'wincent/command-t'
-let g:CommandTMaxHeight=20
+" Searching
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<Leader>t'
+Bundle 'vim-scripts/SearchComplete'
+Bundle 'edsono/vim-matchit'
 
 " Frontend development
 Bundle 'tpope/vim-haml'
