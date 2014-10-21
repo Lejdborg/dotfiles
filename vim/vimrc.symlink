@@ -69,6 +69,12 @@ nmap <leader>g :tabedit $MYGVIMRC<CR>
 " Toggle NERDTree
 map <Leader>n <plug>NERDTreeTabsToggle<CR>
 
+" Toggle comment/uncomment
+vmap <Leader>c gc
+
+" Command-Shift-F for Ack
+map <D-F> :Ack<space>
+
 " Use tab to increase and decrease indentation
 vmap <tab> >gv
 vmap <S-tab> <gv
