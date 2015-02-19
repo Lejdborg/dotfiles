@@ -17,3 +17,12 @@ color solarized
 if has("autocmd")
   autocmd bufwritepost .gvimrc source $MYGVIMRC
 endif
+
+" ------------------------------------------------------------------------------
+" MacVim settings
+" ------------------------------------------------------------------------------
+
+if has("gui_macvim")
+  " Fullscreen takes up entire screen
+  set fuoptions=maxhorz,maxvert
+endif
