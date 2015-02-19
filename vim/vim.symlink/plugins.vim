@@ -15,8 +15,10 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 
-autocmd vimenter * NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+if has("gui_macvim")
+  autocmd vimenter * NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+endif
 
 " Text editing utilities
 Bundle 'vim-scripts/Reindent'
