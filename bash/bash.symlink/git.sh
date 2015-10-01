@@ -21,8 +21,7 @@ function proml {
     ;;
   esac
 
-PS1="${TITLEBAR}\
-$WHITE\u:\W$GREEN\$(parse_git_branch)$WHITE$ "
+PS1="$WHITE\W$GREEN\$(parse_git_branch)$WHITE$ "
 }
 
 proml
