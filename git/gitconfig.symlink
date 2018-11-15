@@ -1,6 +1,6 @@
 [user]
 	name = Lejdborg
-	email = christoffer.lejdborg@gmail.com
+	email = christoffer@lejdborg.se
 [color]
 	status = auto
 	diff = auto
@@ -22,6 +22,7 @@
 	smudge = git hawser smudge %f
 	required = true
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	required = true
