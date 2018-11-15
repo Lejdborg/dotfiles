@@ -12,6 +12,7 @@ function proml {
   local       GREEN="\[\033[0;32m\]"
   local LIGHT_GREEN="\[\033[1;32m\]"
   local       WHITE="\[\033[1;37m\]"
+  local       BLACK="\[\033[1;0m\]"
   case $TERM in
     xterm*)
     TITLEBAR="\[\033]0;\W\007\]"
@@ -21,7 +22,7 @@ function proml {
     ;;
   esac
 
-PS1="$WHITE\W$GREEN\$(parse_git_branch)$WHITE$ "
+PS1="$WHITE\W$GREEN\$(parse_git_branch)$WHITE$ $BLACK"
 }
 
 proml
