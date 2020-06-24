@@ -35,3 +35,7 @@ _assets/**/*
 .powder
 Capfile
 deploy.rb
+
+# Node
+node_modules/*
+*/node_modules/*
