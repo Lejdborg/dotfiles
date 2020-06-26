@@ -2,7 +2,7 @@
 
 ## Install
 
-    git clone git://github.com/Lejdborg/dotfiles ~/.dotfiles
+    git clone git@github.com:Lejdborg/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
     git submodule update --init
     rake install
