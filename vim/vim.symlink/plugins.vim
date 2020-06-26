@@ -37,23 +37,12 @@ Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-endwise'
 
 " Searching
-Bundle 'mileszs/ack.vim'
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '<Leader>t'
 Bundle 'vim-scripts/SearchComplete'
-Bundle 'edsono/vim-matchit'
-
-" Docker
-Plugin 'ekalinin/Dockerfile.vim'
 
 " Frontend development
-Bundle 'tpope/vim-haml'
-Bundle 'juvenn/mustache.vim'
 Bundle 'lunaru/vim-less'
-Bundle 'kchmck/vim-coffee-script'
 
 " Ruby
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
 
 call vundle#end()

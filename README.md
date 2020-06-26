@@ -5,7 +5,6 @@
     git clone git://github.com/Lejdborg/dotfiles ~/.dotfiles
     cd ~/.dotfiles
     git submodule update --init
-    bundle install
     rake install
 
 ## Vim

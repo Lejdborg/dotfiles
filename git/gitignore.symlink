@@ -1,5 +1,6 @@
 # Generic
 .DS_Store
+*/.DS_Store
 ._*
 .svn
 *.gz
@@ -18,7 +19,7 @@ build/*
 xcuserdata
 *.moved-aside
 
-# RubyMine
+# RubyMine/IntelliJ
 .idea
 
 # Temp nibs and swap files
